@@ -1,0 +1,16 @@
+# beneficios trimestrales de la empresa Johnson & Johnson 1960 y 1980
+jj = scan('http://verso.mat.uam.es/~joser.berrendero/datos/jj.dat')
+plot(jj)
+jj.ts = ts(jj, start = c(1960,1), frequency = 4)
+
+print(jj.ts)
+plot(jj.ts)
+
+
+boxplot(jj.ts ~ cycle(jj.ts))
+
+#determina la unidad de tiempo a la que pertenece cada observación de la serie
+cycle(jj.ts)
+
+jj.ts.desc = decompose(jj.ts)
+plot(jj.ts.desc, xlab='Año')
